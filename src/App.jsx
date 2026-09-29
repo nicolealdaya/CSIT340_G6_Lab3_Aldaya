@@ -40,31 +40,50 @@ const Total = (props) => {
   )
 }
 
-const App = () => {
-  const course = 'CSIT340 - Industry Elective 1'
+const Footer = (props) => {
+  return (
+    <footer>
+      {props.name} - {props.courseCode} - {props.section}
+    </footer>
+  )
+}
 
-  const parts = [
-    {
-      name: 'CSIT321 - Applications Development and Emerging Technologies',
-      exercises: 3
-    },
-    {
-      name: 'IT365 - Data Analytics 1',
-      exercises: 3
-    },
-    {
-      name: 'CSIT327 - Information Management 2',
-      exercises: 3
-    }
-  ]
+const App = () => {
+  const course = {
+    name: 'CSIT340 - Industry Elective 1',
+    parts: [
+      {
+        name: 'CSIT321 - Applications Development and Emerging Technologies',
+        exercises: 3
+      },
+      {
+        name: 'IT365 - Data Analytics 1',
+        exercises: 3
+      },
+      {
+        name: 'CSIT327 - Information Management 2',
+        exercises: 3
+      }
+    ]
+  }
+
+  const fullName = 'Nicole Sheen P. Aldaya'
+  const courseCode = 'CSIT340'
+  const section = 'G6'
 
   return (
     <div>
-      <Header course={course} />
-      <Content parts={parts} />
-      <Total parts={parts} />
+      <Header course={course.name} />
+      <Content parts={course.parts} />
+      <Total parts={course.parts} />
+      <Footer
+        name={fullName}
+        courseCode={courseCode}
+        section={section}
+      />
     </div>
   )
 }
 
 export default App
+
